@@ -1,0 +1,21 @@
+<h2>Cafephile</h2>
+<div class="mat-elevation-z8">
+  <table mat-table class="baseline-table" [dataSource]="dataSource">
+    <ng-container matColumnDef="blend">
+      <th mat-header-cell *matHeaderCellDef>Blend Name</th>
+      <td mat-cell *matCellDef="let element">{{element.blend_name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="origin">
+      <th mat-header-cell *matHeaderCellDef>Origin</th>
+      <td mat-cell *matCellDef="let element" class="grey-text">{{element.origin}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row (click)="selectedProduct(row)" matTooltip="Click for more details"
+      *matRowDef="let row; columns: displayedColumns;">
+
+  </table>
+  <mat-paginator [hidePageSize]="true" [pageSize]="10" showFirstLastButtons>
+  </mat-paginator>
+</div>
