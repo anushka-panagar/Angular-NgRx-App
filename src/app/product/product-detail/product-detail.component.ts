@@ -4,7 +4,8 @@ import { select, Store } from '@ngrx/store';
 import { switchMap } from 'rxjs';
 import { AppState } from 'src/app/reducers';
 import { Product } from '../model/product';
-import { selectProductById } from "../store/products.selector";
+import { ProductState } from '../store/products.reducer';
+import { selectProductById } from "../store/products.selectors";
 
 @Component({
   selector: 'app-product-detail',
@@ -19,7 +20,7 @@ export class ProductDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private store: Store<AppState>) { }
+    private store: Store<ProductState>) { }
 
   ngOnInit(): void {
     let fetchData$ = this.route.paramMap.pipe(

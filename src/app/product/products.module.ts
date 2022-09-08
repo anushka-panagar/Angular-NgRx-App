@@ -12,7 +12,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { reducer } from "./store/products.reducer";
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
-import { ProductsEffects } from "./store/products.effect";
+import { ProductsEffects } from "./store/products.effects";
 
 @NgModule({
   imports: [

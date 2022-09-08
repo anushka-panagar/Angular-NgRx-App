@@ -1,14 +1,11 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from "@angular/core";
 import { Store } from "@ngrx/store";
-import { Observable } from "rxjs/internal/Observable";
-import { AppState } from "src/app/reducers";
 import { Product } from "../model/product";
-import { ProductsService } from "../services/product.service";
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Subscription } from "rxjs";
-import { ActivatedRoute, Route, Router } from "@angular/router";
-import { selectProducts } from "../store/products.selector";
+import { Router } from "@angular/router";
+import { selectProducts } from "../store/products.selectors";
+import { ProductState } from "../store/products.reducer";
 
 
 @Component({
@@ -30,7 +27,7 @@ export class ProductsListComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private store: Store<AppState>,
+    private store: Store<ProductState>,
     private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {

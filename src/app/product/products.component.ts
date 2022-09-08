@@ -1,9 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
-import { AppState } from "../reducers";
-import { invokeProductsAPI, productsFetchAPIError } from "./store/products.action";
-// import { getProductError, getProductsError } from "./store/products.reducer";
+import { invokeProductsAPI } from "./store/products.actions";
+import { ProductState } from "./store/products.reducer";
 
 @Component({
   selector: 'app-products',
@@ -12,12 +10,11 @@ import { invokeProductsAPI, productsFetchAPIError } from "./store/products.actio
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<ProductState>) {
   }
 
   ngOnInit() {
     this.store.dispatch(invokeProductsAPI());
-    this.store.select(productsFetchAPIError);
   }
 
   loadingError(error: Error) {
